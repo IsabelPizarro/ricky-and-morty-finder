@@ -1,4 +1,4 @@
-// const ENDPOINT= "https://rickandmortyapi.com/api/episode/";
+//  const ENDPOINT= "https://rickandmortyapi.com/api/episode/";
 
 function Service() {
     return fetch(
