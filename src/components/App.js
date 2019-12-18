@@ -1,8 +1,29 @@
-import React, { Component } from 'react';
-
+import React  from 'react';
+import { Service } from "./Service";
 import '../App.css';
 
-class App extends Component {
+
+
+
+
+  class App extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        chapters: [],
+       
+      };
+
+    }
+    componentDidMount() {
+      this.getChapters();
+    }
+    getChapters() {
+      Service().then(data => {
+        console.log(data.results);
+       this.setState({ chapters: data.results });
+      });
+    }
   render() {
     return (
       <div className="App">
