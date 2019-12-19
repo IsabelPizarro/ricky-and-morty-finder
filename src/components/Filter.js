@@ -1,8 +1,7 @@
  import React from "react";
 
 class Filter extends React.Component {
-
-  render() {
+ render() {
     const { handleInput } = this.props;
     return (
       <form className="col s12">
