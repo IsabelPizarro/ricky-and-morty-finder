@@ -1,15 +1,6 @@
   import React from "react";
 class Image extends React.Component {
 
-  // getlasimagenes() {
-  //   fetch('https://rickandmortyapi.com/api/episode/')
-  //     .then((response) => {
-  //       return response.json()
-  //     })
-  //     .then((empleados) => {
-  //       console.log(empleados);
-  //     })
-  // }
 
 
   render() {
@@ -18,14 +9,6 @@ class Image extends React.Component {
     return (
       <div>
         hola
-        {/* {fetch(lala)
-              .then((response) => {
-                return response.json()
-              })
-              .then((empleados) => {
-                console.log(empleados);
-              })
-        } */}
       </div>
     );
   }

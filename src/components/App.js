@@ -11,7 +11,7 @@ import '../App.css';
       super(props);
       this.state = {
         chapters: [],
-      cha:[],
+      images:"",
         value:"",
 
        
@@ -25,13 +25,26 @@ import '../App.css';
     }
     getChapters() {
       Service().then(data => {
-         
+        // debugger;
+        this.setState({ chapters: data.results });
          const dataC=data.results;
-          console.log(dataC.length);
+          // console.log(dataC.length);
          const datatis=dataC.map(datos=>datos.characters[5]);
-          console.log(datatis.length);
-       this.setState({ chapters: data.results });
-       this.setState({ cha: datatis });
+         console.log(datatis);
+         for (let dat of datatis)
+    //  for (let i = 0; i < datatis.length; i++) {
+    //    console.log(datatis[i]);
+    //   }
+
+          fetch(dat)
+          .then(response => response.json())
+          .then(date=>{ this.setState({ images: date });
+
+          }
+            );
+          
+          Promise.all();
+      
       
       });
     }
@@ -44,13 +57,13 @@ import '../App.css';
 
 
   render() {
-    const {chapters, value,cha}=this.state;
-    console.log(cha);
+    const {chapters, value,images}=this.state;
+    console.log(images.image);
 
     return (
       <div className="App">
         <div className="App-header">
-      Buscador de campítulos:
+        <h6 className="mainTitle">Buscador de capítulos</h6>
       <Filter  handleInput={this.handleInput}/>
         </div>
         <div className="containerCards">
@@ -60,8 +73,17 @@ import '../App.css';
          .toUpperCase()
           .includes(value.toUpperCase()))
         .map((chapter,i)=>
-        <Card chapter={chapter} cha={cha} i={i}/>)}
+        <Card chapter={chapter} i={i} image={images.image}/>)}
+  
         </div>
+        <footer className="page-footer">
+        <div className="footer-copyright">
+            <div className="container">
+            © 2019 Copyright 
+            </div>
+           
+          </div>
+          </footer>
       </div>
     );
   }

@@ -4,20 +4,39 @@
 
 
 .App-header {
-  border: solid 3px  violet;
+  border: solid 0.5px  violet;
   background-color:whitesmoke;
+  text-align: center;
   height: 150px;
   padding: 20px;
   color: pink;
 }
 .card{
-  margin:15px;
-  border:solid 2px black;
+  /* margin: 15px; */
+  /* border:solid 0.5px black; */
   width: 250px;
 }
 .containerCards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+.white-text {
+  height: 174px;
+}
+.s12{
+  box-sizing: content-box;
+  width: 350px;
+  margin: auto;
+}
+.row .col.s6 {
+  width: 100%;
+}
+.mainTitle {
+  box-sizing: content-box;
+  margin: auto;
 }
 
 
