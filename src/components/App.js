@@ -3,6 +3,7 @@ import { Service } from "./Service";
 import Filter from "./Filter";
 import Card from "./Card";
 import Loader from "./Loader";
+// import Image from "./Image";
 import '../App.css';
 
 
@@ -10,40 +11,48 @@ import '../App.css';
     constructor(props) {
       super(props);
       this.state = {
-        chapters: [],
-      images:"",
+        chapters: [
+        ],
+      images:[],
         value:"",
 
        
       };
       this.handleInput = this.handleInput.bind(this);
-      // this.getImage=this.getImage.bind(this);
+ 
     }
     componentDidMount() {
       this.getChapters();
-      // this.getImage();
+    
     }
     getChapters() {
       Service().then(data => {
         // debugger;
         this.setState({ chapters: data.results });
-         const dataC=data.results;
-          // console.log(dataC.length);
-         const datatis=dataC.map(datos=>datos.characters[5]);
-         console.log(datatis);
-         for (let dat of datatis)
-    //  for (let i = 0; i < datatis.length; i++) {
-    //    console.log(datatis[i]);
-    //   }
+        //  const dataC=data.results;
+        //  const datatis=dataC.map(datos=>datos.characters[5]);
+        //  console.log(datatis);
+        //  for (let dat of datatis){
+        //   //  console.log(dat);
+        //   //  for (let datis of dat) {
+             
+        
+ 
+        //   fetch(datatis)
+        //   .then(response => response.json())
+        //   .then(date=>{
+        //     // console.log(date);
+        //     let myImages = this.state.images;
+        //     myImages.push(date);
+        //     this.setState({ images: myImages }
+        //       );
 
-          fetch(dat)
-          .then(response => response.json())
-          .then(date=>{ this.setState({ images: date });
-
-          }
-            );
+        //   }
+        //     );
           
-          Promise.all();
+          
+         
+        // }
       
       
       });
@@ -57,8 +66,8 @@ import '../App.css';
 
 
   render() {
-    const {chapters, value,images}=this.state;
-    console.log(images.image);
+    const {chapters, value}=this.state;
+    // console.log(images);
 
     return (
       <div className="App">
@@ -73,7 +82,9 @@ import '../App.css';
          .toUpperCase()
           .includes(value.toUpperCase()))
         .map((chapter,i)=>
-        <Card chapter={chapter} i={i} image={images.image}/>)}
+        
+        <Card chapter={chapter} i={i} />)}
+        
   
         </div>
         <footer className="page-footer">
